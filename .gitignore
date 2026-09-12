@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.local/
+.local-data/
+coverage/
+*.tgz
+*.tgz.sha256
+.env*
+examples/*/report/
+test-results/
+playwright-report/

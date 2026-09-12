@@ -1,0 +1,4 @@
+* text=auto eol=lf
+LICENSE whitespace=-blank-at-eol
+*.png binary
+*.tgz binary

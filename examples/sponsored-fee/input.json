@@ -1,0 +1,73 @@
+{
+  "jsonrpc": "2.0",
+  "id": "synthetic-sponsored-fee",
+  "_z7onExample": "SYNTHETIC TEACHING DATA. Not a blockchain response or real transaction.",
+  "result": {
+    "slot": 101,
+    "version": "legacy",
+    "blockTime": 1700000000,
+    "transaction": {
+      "signatures": [
+        "SYNTHETIC-sponsored-fee-not-a-chain-signature"
+      ],
+      "message": {
+        "accountKeys": [
+          {
+            "pubkey": "11111111111111111111111111111113",
+            "signer": true,
+            "writable": true
+          },
+          {
+            "pubkey": "11111111111111111111111111111112",
+            "signer": true,
+            "writable": true
+          },
+          {
+            "pubkey": "11111111111111111111111111111114",
+            "signer": false,
+            "writable": true
+          },
+          {
+            "pubkey": "11111111111111111111111111111111",
+            "signer": false,
+            "writable": false
+          }
+        ],
+        "instructions": [
+          {
+            "program": "system",
+            "programId": "11111111111111111111111111111111",
+            "parsed": {
+              "type": "transfer",
+              "info": {
+                "source": "11111111111111111111111111111112",
+                "destination": "11111111111111111111111111111114",
+                "lamports": 100000000
+              }
+            }
+          }
+        ]
+      }
+    },
+    "meta": {
+      "err": null,
+      "fee": 5000,
+      "preBalances": [
+        1000000,
+        1000000000,
+        1000000,
+        1
+      ],
+      "postBalances": [
+        995000,
+        900000000,
+        101000000,
+        1
+      ],
+      "preTokenBalances": [],
+      "postTokenBalances": [],
+      "innerInstructions": [],
+      "logMessages": []
+    }
+  }
+}

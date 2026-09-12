@@ -1,0 +1,32 @@
+name: Reproducible inspection issue
+description: A concrete question with a safe synthetic reproduction
+body:
+  - type: markdown
+    attributes:
+      value: Do not upload private transactions, credentials, seed phrases or local paths. Use a minimal synthetic example that you have the right to share.
+  - type: input
+    id: version
+    attributes:
+      label: Inspector version and Node version
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What question were you trying to answer?
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Minimal synthetic input and command
+      description: Remove secrets and private data. Explain how to reproduce without contacting a provider.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected versus actual result
+      description: Explain the original instruction or balance evidence behind the expectation. A limitation or residual is not automatically a bug.
+    validations:
+      required: true

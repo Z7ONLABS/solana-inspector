@@ -1,0 +1,47 @@
+name: Manual offline inspector checks
+on:
+  workflow_dispatch:
+    inputs:
+      expected_sha256:
+        description: SHA-256 of the reviewed 0.4.0 release candidate
+        required: true
+        default: 25af612df021347a7b14522c0f325f0f3f37fb83ceaf19f3d07433e1295f26c6
+permissions:
+  contents: read
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24.13.0
+      - name: Install exact development tools
+        run: |
+          npm install --global pnpm@11.19.0 --ignore-scripts --no-audit --no-fund
+          pnpm install --frozen-lockfile --ignore-scripts
+      - name: Validate source and build once
+        env:
+          EXPECTED_SHA256: ${{ inputs.expected_sha256 }}
+        run: |
+          pnpm typecheck
+          pnpm test
+          pnpm build
+          node --input-type=module -e "import fs from 'node:fs'; import assert from 'node:assert/strict'; const candidate=JSON.parse(fs.readFileSync('.local/latest-build.json')); assert.match(process.env.EXPECTED_SHA256,/^[a-f0-9]{64}$/); assert.equal(candidate.sha256,process.env.EXPECTED_SHA256);"
+          pnpm test:examples
+          pnpm pack:check
+          node --test tests/archive.test.mjs
+      - name: Prepare checksum-pinned official test runtimes
+        run: node scripts/inspector/compatibility-runtimes.mjs
+      - name: Full independent offline compatibility matrix
+        env:
+          EXPECTED_SHA256: ${{ inputs.expected_sha256 }}
+        run: |
+          node scripts/inspector/compatibility.mjs --build .local/latest-build.json --out .local-data/inspector/compatibility-linux --expected-sha "$EXPECTED_SHA256"
+      - name: Keep failure diagnostics in transient logs only
+        if: failure()
+        run: |
+          if test -f .local-data/inspector/compatibility-linux/cell-error.txt; then cat .local-data/inspector/compatibility-linux/cell-error.txt; fi

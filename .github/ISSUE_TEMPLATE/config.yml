@@ -1,0 +1,5 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Questions and proposals
+    url: https://github.com/Z7ONLABS/solana-inspector/discussions
+    about: Describe what you are trying to understand. No private files, please.
