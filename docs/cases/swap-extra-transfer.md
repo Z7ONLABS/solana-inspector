@@ -4,6 +4,8 @@
 `TOKEN` is an invented asset with six decimals. The public DFlow program identifier
 is used only to exercise the existing narrow DFlow-v4 evidence rule.
 
+[Open the generated, explained report — no installation](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/swap-extra-transfer/report.html).
+
 ## Question
 
 The wallet's TOKEN balance rises by 2.0. Did the swap receive only 2.0 TOKEN?

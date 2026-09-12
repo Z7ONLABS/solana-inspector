@@ -2,6 +2,8 @@
 
 **SYNTHETIC example. Not blockchain data or a real transaction.**
 
+[Open the generated, explained report — no installation](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/sponsored-fee/report.html).
+
 ## Question
 
 The record contains a 5,000-lamport network fee. Should an application also subtract

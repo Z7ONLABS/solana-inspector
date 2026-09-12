@@ -14,6 +14,15 @@ parser. No private archived transactions are included.
 
 All three use the analyzed wallet `11111111111111111111111111111112`.
 
+## Read the generated reports without installing
+
+- [Sponsored fee: a movement that reconciles](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/sponsored-fee/report.html)
+- [Swap followed by a separate transfer](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/swap-extra-transfer/report.html)
+- [An intentionally unexplained difference](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/unexplained-difference/report.html)
+
+These are the generated synthetic teaching views described below, not live
+analysis. Opening them does not submit a wallet or a transaction file.
+
 ## Reproduce the shipped report, not a mockup
 
 ```sh
@@ -38,7 +47,7 @@ npx --no-install z7on-inspect --input examples/sponsored-fee/input.json --wallet
 ```
 
 Use a new output directory for each run. **Exit 0 means a report was generated**,
-including for the deliberate contradiction; it does not mean the evidence
+including for the deliberately unexplained difference; it does not mean the evidence
 reconciles, proves execution, or establishes complete wallet history.
 
 ## What the tests independently check

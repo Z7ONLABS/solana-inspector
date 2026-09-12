@@ -1,6 +1,8 @@
 # Where did the unexplained 0.01 SOL come from?
 
-**SYNTHETIC and deliberately inconsistent. Not blockchain data.**
+**SYNTHETIC, with a deliberately unexplained difference. Not blockchain data.**
+
+[Open the generated, explained report — no installation](https://www.z7onlabs.com/examples/solana-inspector/0.4.0/unexplained-difference/report.html).
 
 ## Question
 
